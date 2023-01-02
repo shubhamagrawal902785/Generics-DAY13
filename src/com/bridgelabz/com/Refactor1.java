@@ -1,24 +1,38 @@
 package com.bridgelabz.com;
 
+public class Refactor2 <T extends Comparable<T>> {
 
-public class Refactor1 {
+    T num1;
+    T num2;
+    T num3;
 
-    public static <T extends Comparable<T>> T maximum(T num1, T num2, T num3) {
+    Refactor2(T num1, T num2, T num3) {
+        this.num1 = num1;
+        this.num2 = num2;
+        this.num3 = num3;
+    }
 
-        if (num2.compareTo(num1) > 0) {
-            return num2;
-        } else if (num3.compareTo(num2) > 0) {
-            return num3;
-        } else {
+    public T maximum() {
+
+        if (num1.compareTo(num2) > 0) {
             return num1;
+        } else if (num2.compareTo(num3) > 0) {
+            return num2;
+        } else {
+            return num3;
         }
-
     }
-
+    
     public static void main(String[] args) {
+        // TODO Auto-generated method stub
 
-        System.out.println("Maximum number out of three integers is: " + maximum(11, 15, 2));
-        System.out.println("Maximum number out of three float is: " + maximum(1.1f, 331.2f, 96.1f));
-        System.out.println("Maximum among three string is: " + maximum("shubham", "gyanesh", "shubh"));
-    }   
+        Refactor2 compareInteger = new Refactor2(2345, 12, 7);
+        System.out.println("Maximum number out of three integers is: " + compareInteger.maximum());
+
+        Refactor2 comapreFloat = new Refactor2(123.f, 345f, 678f);
+        System.out.println("Maximum number out of three float is: " + comapreFloat.maximum());
+
+        Refactor2 compareString = new Refactor2("Apple", "Orange", "potato");
+        System.out.println("Maximum among three string is: " + compareString.maximum());
     }
+}
